@@ -1,0 +1,20 @@
+html :: xmlns : http://www.w3.org/1999/xhtml ; xml:lang : en ; lang : en ;
+ head
+  title
+ body :: bgcolor : #dae1ed ;
+  div :: style : color:#090;font-size:40px;font-weight:bold;text-align:center;margin-bottom:-25px; ;
+  p :: style : text-align:center;font-size:20px; ;
+  p :: style : text-align:center;font-size:20px; ;
+   select :: name : month ;
+    option :: selected : selected ;
+    option
+    option
+    option
+    option
+    option
+    option
+    option
+    option
+    option
+    option
+    option

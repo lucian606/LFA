@@ -1,0 +1,62 @@
+automata5 ::= PushDownAutomata (
+ alphabet:: { a, b } ;
+ states:: { q0 } ;
+ initial_state:: q0 ;
+ stack_alphabet:: { Z0, 0, 1 } ;
+
+ q0 -> (
+ a, Z0 / 0&Z0 -> q0 ;
+ b, Z0 / 1&Z0 -> q0 ;
+ a, 0 / 0&0 -> q0 ;
+ b, 0 / e -> q0 ;
+ b, 1 / 1&1 -> q0 ;
+ a, 1 / e -> q0 ;
+ e, Z0 / e -> q0 ;
+ ) ;
+) ;;
+
+grammar1 ::= Grammar (
+	nonterminals :: { S, S1, S2 } ;
+	alphabet :: { a, b, c } ;
+	start_symbol :: S ;
+ 
+	S -> y&S | a&S1 ;
+	S1 -> b&S2 | e ;
+	S2 -> a&S2 | y ;
+) ;;
+
+% This is a comment
+
+automata1 ::= PushDownAutomata (
+	alphabet :: {a, b, c, d } ;
+	stack_alphabet :: {Z0, X} ;
+	states :: {q0, q1, q2, q3, q4 };
+	final_states :: { q4 } ;
+	initial_state :: q0 ;
+	variable var ::= { a, b, c} ;
+	variable x ::= { b, d} ;
+
+	q0 -> (
+		var, z0 / X&Z0-> q1;
+	) ;
+
+	q1 -> (
+		a, X / X&X -> q1;
+		x, X / e -> q2;
+	) ;
+
+	q2 -> (
+		b, X / e -> q2;
+		c, Z0 / X&Z0 -> q3;
+	) ;
+
+	q3 -> (
+		c, X / X&X -> q3 ;
+		d, X / e -> q4;
+	) ;
+
+	q4 -> (
+		d, X / e -> q4 ;
+		e, Z0 / Z0 -> q4;
+	) ;
+);;

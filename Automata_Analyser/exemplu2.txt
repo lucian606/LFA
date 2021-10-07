@@ -1,0 +1,40 @@
+grammar1 ::= Grammar (
+  start_symbol :: S ;
+  nonterminals :: {S, S1, S2} ;
+  alphabet :: { 0, 1} ;
+
+  S -> 0&S | 1&S | 0&S1
+  S1 -> 1&S2 | e;
+  S2 -> 0&S2 | 11;
+) ;;
+
+automata1 :: PushDownAutomata (
+  alphabet :: {a, b} ;
+  states :: { q0, q1, q2, q3, q4, q5};
+  initial_state :: q0 ;
+  final_states :: { q0, q5} ;
+  stack_alphabet:: { Z0, a, b } ;
+
+  q0 -> (
+    a, Z0 / a&Z0 -> q1 ;
+  ) ;
+
+  q1 -> (
+    a, a / a&a -> q1 ;
+    b, a / e -> q2 ;
+  ) ;
+
+  q2 -> (
+    b, a / e -> q1 ;
+  ) ;
+
+  q3 -> (
+    b, a / a -> q4 ;
+  ) ;
+
+  q4 -> (
+    e, Z0 / Z0 -> q5 ;
+    b, a / e -> q2 ;
+  ) ;
+
+) ;;

@@ -1,0 +1,16 @@
+html :: xmlns : http://www.w3.org/1999/xhtml ; xml:lang : en ; lang : en ;
+ head
+  title
+ frameset :: cols : 30%, 20%, * ;
+  frameset :: rows : 40%, 30%, * ;
+   frame :: src : gfg.html ;
+   frame :: src : gfg1.html ;
+   frame :: src : geeks.html ;
+  frameset :: rows : 40%, 60% ;
+   frame :: src : g4g.html ;
+   frame :: src : g4g1.html ;
+  frameset :: rows : 20%, 20%, 30%, * ;
+   frame :: src : geeksforgeeks.html ;
+   frame :: src : geeksforgeeks1.html ;
+   frame :: src : geeksforgeeks2.html ;
+   frame :: src : geeksforgeeks3.html ;
